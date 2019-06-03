@@ -43,6 +43,9 @@ class APIRequestDemoController: UIViewController {
     
     // MARK: - Private Methods
     private func initialSetup() {
+        
+        log.other("\(LogManager.stats()) UI setup done !!")/
+        
         view.backgroundColor = .lightGray
         
         view.addSubview(getRequestButton)
@@ -60,8 +63,9 @@ class APIRequestDemoController: UIViewController {
     }
     
     @objc private func fetchGetRequest() {
-        print(#function)
         
+        log.method("\(LogManager.stats()) Fetching GET request !!")/
+
         let urlString = "http://api.plos.org/search?q=title:iOS"
         NetworkManager.shared.sendRequest(urlString: urlString,
                                           method: .GET,
@@ -74,15 +78,15 @@ class APIRequestDemoController: UIViewController {
                 return
             }
             
-            if let response = result as? [String: Any] {
-                print(response)
+            if let _ = result as? [String: Any] {
                 self.showAlert(withMessage: "Response fetched !!")
             }
         }
     }
     
     @objc private func fetchPostRequest() {
-        print(#function)
+        
+        log.method("\(LogManager.stats()) POST request called!!")/
         
         // #warning Replace here API url.
         let urlString = "....."
@@ -102,8 +106,7 @@ class APIRequestDemoController: UIViewController {
                 return
             }
             
-            if let response = result as? [String: Any] {
-                print(response)
+            if let _ = result as? [String: Any] {
                 self.showAlert(withMessage: "Response fetched !!")
             }
         }

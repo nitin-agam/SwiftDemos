@@ -43,85 +43,60 @@ class NetworkManager {
             }
             
             let serviceUrl = urlString
-            
-            if kDebug {
-                print("Connecting to Host with URL \(serviceUrl) with parameters: \(parameters)")
-            }
+            log.value_api("\(LogManager.stats()) API Url: \(serviceUrl) with parameters: \(parameters)")/
             
             //NSAssert Statements
             assert(method != .GET || method != .POST, "kHTTPMethod should be one of kHTTPMethodGET|kHTTPMethodPOST|kHTTPMethodPOSTMultiPart.");
             
             switch method {
-                
             case .GET:
-                Alamofire.request(serviceUrl,
-                                  method: .get,
-                                  parameters: parameters,
-                                  encoding: URLEncoding.default,
-                                  headers: nil).responseJSON(completionHandler:
-                                    { (DataResponse) in
-                                        
-                                        if isLoader {
-                                            SVProgressHUD.dismiss()
-                                        }
-                                        
-                                        switch DataResponse.result {
-                                        case .success(let JSON):
-                                            
-                                            if kDebug {
-                                                print("Success with JSON: \(JSON)")
-                                            }
-                                            
-                                            let response = self.getResponseFromData(data: DataResponse.data!)
-                                            completion(response.responseData, response.error, .requestSuccess, DataResponse.response?.statusCode)
-                                            
-                                        case .failure(let error):
-                                            
-                                            if kDebug {
-                                                print("JSON error: \(error.localizedDescription)")
-                                            }
-                                            
-                                            if error.localizedDescription == "cancelled" {
-                                                completion(nil, error, .requestCancelled, DataResponse.response?.statusCode)
-                                            } else {
-                                                completion(nil, error, .requestFailed, DataResponse.response?.statusCode)
-                                            }
-                                        }
-                                  })
+                Alamofire.request(serviceUrl, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON(completionHandler:{ (DataResponse) in
+                    
+                    if isLoader {
+                        SVProgressHUD.dismiss()
+                    }
+                    
+                    switch DataResponse.result {
+                    case .success(let JSON):
+                        log.success_api("\(LogManager.stats()) API Response for url: \(serviceUrl) with response: \(JSON)")/
+                        
+                        let response = self.getResponseFromData(data: DataResponse.data!)
+                        completion(response.responseData, response.error, .requestSuccess, DataResponse.response?.statusCode)
+                        
+                    case .failure(let error):
+                        
+                        log.error_api("\(LogManager.stats()) API Response for url: \(serviceUrl) with error: \(error.localizedDescription)")/
+                        
+                        if error.localizedDescription == "cancelled" {
+                            completion(nil, error, .requestCancelled, DataResponse.response?.statusCode)
+                        } else {
+                            completion(nil, error, .requestFailed, DataResponse.response?.statusCode)
+                        }
+                    }
+                })
             case .POST:
-                Alamofire.request(serviceUrl,
-                                  method: .post,
-                                  parameters: parameters,
-                                  encoding: JSONEncoding.prettyPrinted,
-                                  headers: nil).responseJSON(completionHandler:
-                                    { (DataResponse) in
-                                        
-                                        if isLoader {
-                                            SVProgressHUD.dismiss()
-                                        }
-                                        
-                                        switch DataResponse.result {
-                                        case .success(let JSON):
-                                            
-                                            if kDebug {
-                                                print("Success with JSON: \(JSON)")
-                                            }
-                                            
-                                            let response = self.getResponseFromData(data: DataResponse.data!)
-                                            completion(response.responseData,
-                                                       response.error,
-                                                       .requestSuccess,
-                                                       DataResponse.response?.statusCode)
-                                            
-                                        case .failure(let error):
-                                            
-                                            if kDebug {
-                                                print("JSON error: \(error.localizedDescription)")
-                                            }
-                                            
-                                            completion(nil, error, .requestFailed, DataResponse.response?.statusCode)
-                                        }
-                                  })
+                Alamofire.request(serviceUrl, method: .post, parameters: parameters, encoding: JSONEncoding.prettyPrinted, headers: nil).responseJSON(completionHandler:{ (DataResponse) in
+                    
+                    if isLoader {
+                        SVProgressHUD.dismiss()
+                    }
+                    
+                    switch DataResponse.result {
+                    case .success(let JSON):
+                        
+                        log.success_api("\(LogManager.stats()) API Response for url: \(serviceUrl) with response: \(JSON)")/
+                        
+                        let response = self.getResponseFromData(data: DataResponse.data!)
+                        completion(response.responseData,
+                                   response.error,
+                                   .requestSuccess,
+                                   DataResponse.response?.statusCode)
+                        
+                    case .failure(let error):
+                        log.error_api("\(LogManager.stats()) API Response for url: \(serviceUrl) with error: \(error.localizedDescription)")/
+                        completion(nil, error, .requestFailed, DataResponse.response?.statusCode)
+                    }
+                })
             }
         } else {
             if isLoader {

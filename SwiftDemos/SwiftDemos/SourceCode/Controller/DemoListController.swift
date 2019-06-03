@@ -21,6 +21,8 @@ class DemoListController: UITableViewController {
         title = "Swift Demos"
         view.backgroundColor = .white
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: kCellIdentifier)
+        
+        log.method("\(LogManager.stats()) Demo list shown !!")/
     }
     
     
@@ -37,7 +39,7 @@ class DemoListController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
+        log.other("\(LogManager.stats()) Moving to a demo !!")/
         switch indexPath.row {
         case 0:
             let controller = APIRequestDemoController()

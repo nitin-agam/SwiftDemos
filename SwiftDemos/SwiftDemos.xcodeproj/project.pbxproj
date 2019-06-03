@@ -13,6 +13,7 @@
 		187ACC58227C637400711270 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 187ACC56227C637400711270 /* LaunchScreen.storyboard */; };
 		187ACC6A227C661D00711270 /* APIRequestDemoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187ACC69227C661D00711270 /* APIRequestDemoController.swift */; };
 		187ACC6C227C670800711270 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187ACC6B227C670800711270 /* NetworkManager.swift */; };
+		18DA948A22A55ADD003268CC /* SwiftyLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA948922A55ADD003268CC /* SwiftyLog.swift */; };
 		CB52F4E0F2767DD51B2E3688 /* Pods_SwiftDemos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C31A22188E5CFCD83681584 /* Pods_SwiftDemos.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		187ACC59227C637400711270 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		187ACC69227C661D00711270 /* APIRequestDemoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestDemoController.swift; sourceTree = "<group>"; };
 		187ACC6B227C670800711270 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		18DA948922A55ADD003268CC /* SwiftyLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyLog.swift; sourceTree = "<group>"; };
 		4C31A22188E5CFCD83681584 /* Pods_SwiftDemos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftDemos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EEEF5C54C401016AB2F5895 /* Pods-SwiftDemos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftDemos.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftDemos/Pods-SwiftDemos.release.xcconfig"; sourceTree = "<group>"; };
 		82B64151F5F67E583F311FCC /* Pods-SwiftDemos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftDemos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftDemos/Pods-SwiftDemos.debug.xcconfig"; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 		187ACC5F227C63EF00711270 /* SourceCode */ = {
 			isa = PBXGroup;
 			children = (
+				18DA948822A55A8F003268CC /* Helper */,
 				187ACC65227C63EF00711270 /* AppDelegate */,
 				187ACC61227C63EF00711270 /* Controller */,
 				187ACC62227C63EF00711270 /* Manager */,
@@ -152,6 +155,14 @@
 				187ACC56227C637400711270 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		18DA948822A55A8F003268CC /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				18DA948922A55ADD003268CC /* SwiftyLog.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		83F8A3C336408180CEB00A4A /* Pods */ = {
@@ -294,6 +305,7 @@
 			files = (
 				187ACC6C227C670800711270 /* NetworkManager.swift in Sources */,
 				187ACC50227C637200711270 /* DemoListController.swift in Sources */,
+				18DA948A22A55ADD003268CC /* SwiftyLog.swift in Sources */,
 				187ACC4E227C637200711270 /* AppDelegate.swift in Sources */,
 				187ACC6A227C661D00711270 /* APIRequestDemoController.swift in Sources */,
 			);
