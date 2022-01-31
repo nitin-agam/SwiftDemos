@@ -14,6 +14,8 @@
 		187ACC6A227C661D00711270 /* APIRequestDemoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187ACC69227C661D00711270 /* APIRequestDemoController.swift */; };
 		187ACC6C227C670800711270 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187ACC6B227C670800711270 /* NetworkManager.swift */; };
 		18DA948A22A55ADD003268CC /* SwiftyLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA948922A55ADD003268CC /* SwiftyLog.swift */; };
+		18DA948E22A5816F003268CC /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA948D22A5816F003268CC /* Movie.swift */; };
+		C750A31B27A82502005E81A5 /* TextViewLinkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C750A31A27A82502005E81A5 /* TextViewLinkController.swift */; };
 		CB52F4E0F2767DD51B2E3688 /* Pods_SwiftDemos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C31A22188E5CFCD83681584 /* Pods_SwiftDemos.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,9 +29,11 @@
 		187ACC69227C661D00711270 /* APIRequestDemoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestDemoController.swift; sourceTree = "<group>"; };
 		187ACC6B227C670800711270 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		18DA948922A55ADD003268CC /* SwiftyLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyLog.swift; sourceTree = "<group>"; };
+		18DA948D22A5816F003268CC /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		4C31A22188E5CFCD83681584 /* Pods_SwiftDemos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftDemos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EEEF5C54C401016AB2F5895 /* Pods-SwiftDemos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftDemos.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftDemos/Pods-SwiftDemos.release.xcconfig"; sourceTree = "<group>"; };
 		82B64151F5F67E583F311FCC /* Pods-SwiftDemos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftDemos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftDemos/Pods-SwiftDemos.debug.xcconfig"; sourceTree = "<group>"; };
+		C750A31A27A82502005E81A5 /* TextViewLinkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewLinkController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +70,6 @@
 			isa = PBXGroup;
 			children = (
 				187ACC5F227C63EF00711270 /* SourceCode */,
-				187ACC67227C63EF00711270 /* Resource */,
 			);
 			path = SwiftDemos;
 			sourceTree = "<group>";
@@ -74,13 +77,12 @@
 		187ACC5F227C63EF00711270 /* SourceCode */ = {
 			isa = PBXGroup;
 			children = (
+				18DA948B22A57F2A003268CC /* MVVM */,
 				18DA948822A55A8F003268CC /* Helper */,
 				187ACC65227C63EF00711270 /* AppDelegate */,
 				187ACC61227C63EF00711270 /* Controller */,
 				187ACC62227C63EF00711270 /* Manager */,
-				187ACC63227C63EF00711270 /* Model */,
 				187ACC64227C63EF00711270 /* View */,
-				187ACC66227C63EF00711270 /* Utility */,
 				187ACC60227C63EF00711270 /* OtherFiles */,
 			);
 			path = SourceCode;
@@ -100,6 +102,7 @@
 			children = (
 				187ACC4F227C637200711270 /* DemoListController.swift */,
 				187ACC69227C661D00711270 /* APIRequestDemoController.swift */,
+				C750A31A27A82502005E81A5 /* TextViewLinkController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -110,13 +113,6 @@
 				187ACC6B227C670800711270 /* NetworkManager.swift */,
 			);
 			path = Manager;
-			sourceTree = "<group>";
-		};
-		187ACC63227C63EF00711270 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		187ACC64227C63EF00711270 /* View */ = {
@@ -135,20 +131,6 @@
 			path = AppDelegate;
 			sourceTree = "<group>";
 		};
-		187ACC66227C63EF00711270 /* Utility */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utility;
-			sourceTree = "<group>";
-		};
-		187ACC67227C63EF00711270 /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resource;
-			sourceTree = "<group>";
-		};
 		187ACC68227C640C00711270 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +145,22 @@
 				18DA948922A55ADD003268CC /* SwiftyLog.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		18DA948B22A57F2A003268CC /* MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				18DA948C22A57F47003268CC /* Model */,
+			);
+			path = MVVM;
+			sourceTree = "<group>";
+		};
+		18DA948C22A57F47003268CC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18DA948D22A5816F003268CC /* Movie.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		83F8A3C336408180CEB00A4A /* Pods */ = {
@@ -305,6 +303,8 @@
 			files = (
 				187ACC6C227C670800711270 /* NetworkManager.swift in Sources */,
 				187ACC50227C637200711270 /* DemoListController.swift in Sources */,
+				C750A31B27A82502005E81A5 /* TextViewLinkController.swift in Sources */,
+				18DA948E22A5816F003268CC /* Movie.swift in Sources */,
 				18DA948A22A55ADD003268CC /* SwiftyLog.swift in Sources */,
 				187ACC4E227C637200711270 /* AppDelegate.swift in Sources */,
 				187ACC6A227C661D00711270 /* APIRequestDemoController.swift in Sources */,
@@ -449,7 +449,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/SwiftDemos/SourceCode/OtherFiles/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,7 +457,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -470,7 +470,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/SwiftDemos/SourceCode/OtherFiles/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -478,7 +478,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

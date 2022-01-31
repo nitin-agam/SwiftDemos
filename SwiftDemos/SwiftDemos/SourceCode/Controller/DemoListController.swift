@@ -12,14 +12,14 @@ class DemoListController: UITableViewController {
     
     // MARK: - Variables
     private let kCellIdentifier = "ListCell"
-    private let listArray = ["Alamofire Demo"]
+    private let listArray = ["Alamofire", "UITextView + Link Detection"]
     
     
     // MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Swift Demos"
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.systemBackground
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: kCellIdentifier)
         
         log.method("\(LogManager.stats()) Demo list shown !!")/
@@ -46,9 +46,12 @@ class DemoListController: UITableViewController {
             controller.title = listArray[indexPath.row]
             navigationController?.pushViewController(controller, animated: true)
             
+        case 1:
+            let controller = TextViewLinkController()
+            controller.title = listArray[indexPath.row]
+            navigationController?.pushViewController(controller, animated: true)
+            
         default: break
         }
     }
-    
 }
-

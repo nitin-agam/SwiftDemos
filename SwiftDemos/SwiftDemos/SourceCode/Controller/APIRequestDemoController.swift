@@ -46,7 +46,7 @@ class APIRequestDemoController: UIViewController {
         
         log.other("\(LogManager.stats()) UI setup done !!")/
         
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .systemBackground
         
         view.addSubview(getRequestButton)
         getRequestButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
